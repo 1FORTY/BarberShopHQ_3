@@ -15,7 +15,7 @@ class Barber < ActiveRecord::Base
 end
 
 get '/' do
-  @barbers = Barber.all # Теперь данная переменная содержит все данные сущности Barber
+  @barbers = Barber.order "created_at DESC" # Теперь данная переменная содержит все данные сущности Barber
 
   erb :index
 end
