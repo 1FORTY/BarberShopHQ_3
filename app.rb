@@ -14,9 +14,13 @@ class Barber < ActiveRecord::Base
 
 end
 
-get '/' do
+before do # Добавляет данный код во все get и post запросы
+
   @barbers = Barber.all # Теперь данная переменная содержит все данные сущности Barber
 
+end
+
+get '/' do
   erb :index
 end
 
