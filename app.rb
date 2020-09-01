@@ -15,5 +15,7 @@ class Barber < ActiveRecord::Base
 end
 
 get '/' do
+  @barbers = Barber.all # Теперь данная переменная содержит все данные сущности Barber
+
   erb :index
 end
