@@ -15,7 +15,25 @@ class Barber < ActiveRecord::Base
 end
 
 get '/' do
-  @barbers = Barber.order "created_at DESC" # Теперь данная переменная содержит все данные сущности Barber
+  @barbers = Barber.all # Теперь данная переменная содержит все данные сущности Barber
 
   erb :index
+end
+
+get '/visit' do
+
+
+  erb :visit
+end
+
+post '/visit' do
+
+  @username = params[:username]
+  @phone = params[:phone]
+  @datetime = params[:datetime]
+  @barber = params[:barber]
+  @color = params[:color]
+
+  erb "Спасибо, вы записаны."
+
 end
